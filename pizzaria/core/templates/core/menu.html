@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Menu da Pizzaria{% endblock %}
+
+{% block content %}
+<div class="menu-container">
+    <h1> Menu da Pizzaria</h1>
+    <p>Escolha uma das opções abaixo:</p>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <h2>Clientes</h2>
+            <p>Visualize e gerencie os clientes</p>
+            <br>
+            <a href="{% url 'lista_clientes' %}" class="menu-button">Ver Clientes</a>
+        </div>
+        <div class="menu-item">
+            <h2>Reservas</h2>
+            <p>Visualize e gerencie as reservas.</p>
+            <a href="{% url 'lista_reservas' %}" class="menu-button">Ver Reservas</a>
+        </div>
+        <div class="menu-item">
+            <h2>Mesas</h2>
+            <p>Visualize e gerencie as mesas.</p>
+            <br>
+            <a href="{% url 'listar_mesas' %}" class="menu-button">Ver mesa</a>
+        </div>
+        <div class="menu-item">
+            <h2>Usuários</h2>
+            <p>Visualize e gerencie os usuários.</p>
+            <a href="{% url 'listar_usuarios' %}" class="menu-button">Ver Usuários</a>
+        </div>
+        <a href="{% url 'gerar_relatorio_clientes' %}" class="btn menu-button">Gerar Relatório de Clientes</a>
+        <a href="{% url 'gerar_relatorio_reservas' %}" class="btn menu-button">Gerar Relatório de Reservas</a>
+        <a href="{% url 'gerar_relatorio_mesas' %}" class="btn menu-button">Gerar Relatório de Mesas</a>
+        <a href="{% url 'gerar_relatorio_usuarios' %}" class="btn menu-button">Gerar Relatório de Usuários</a>
+    </div>
+</div>
+{% endblock %}

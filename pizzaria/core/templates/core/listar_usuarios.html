@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/lista.css' %}">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <br>
+    <h1 align="center">Lista de Usuários</h1>
+    <a href="{% url 'menu' %}" class="button">Voltar ao Menu</a>
+    <a href="{% url 'criar_usuario' %}" class="button">Criar Usuário</a>
+    <table>
+        <tr>
+
+            <th>Nome de Usuário</th>
+            <th>Ações</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            
+            <td>{{ usuario.username }}</td>
+            <td>
+                <a href="{% url 'atualizar_usuario' usuario.id %}" class="button">Editar</a>
+                <a href="{% url 'deletar_usuario' usuario.id %}" class="button">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

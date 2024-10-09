@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Lista de Mesas{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #3498db;
+        color: white;
+    }
+
+    .button {
+        background-color: #2980b9;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #21618c;
+    }
+
+    .button-delete {
+        background-color: #e74c3c;
+    }
+
+    .button-delete:hover {
+        background-color: #c0392b;
+    }
+
+    .new-button {
+        background-color: #2ecc71;
+    }
+
+    .new-button:hover {
+        background-color: #27ae60;
+    }
+</style>
+
+<div class="container">
+    <h1 align="center">Lista de Mesas</h1>
+    <a href="{% url 'menu' %}" class="button">Voltar ao Menu</a>
+    <a href="{% url 'criar_mesa' %}" class="button">Nova Mesa</a>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Capacidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mesa in mesas %}
+            <tr>
+                <td>Mesa {{ mesa.numero }}</td>
+                <td>{{ mesa.capacidade }} pessoas</td>
+                <td>
+                    <a href="{% url 'atualizar_mesa' mesa.id %}" class="button">Editar</a>
+                    <a href="{% url 'deletar_mesa' mesa.id %}" class="button button-delete">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+{% endblock %}

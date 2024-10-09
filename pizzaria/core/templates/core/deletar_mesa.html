@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Deletar Mesa{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Deletar Mesa</h1>
+    <p>Você tem certeza que deseja deletar a mesa {{ mesa.numero }}?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="button button-delete">Confirmar Exclusão</button>
+    </form>
+    <a href="{% url 'listar_mesas' %}" class="button">Cancelar</a>
+</div>
+{% endblock %}

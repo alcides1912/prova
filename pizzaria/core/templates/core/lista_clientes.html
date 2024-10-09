@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/lista.css' %}">
+    <br>
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <h1 align="center">Lista de Clientes</h1>
+    <a href="{% url 'menu' %}" class="button">Voltar ao Menu</a>
+    <a href="{% url 'criar_cliente' %}" class="button">Criar Cliente</a>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.user.username }}</td>
+            <td>{{ cliente.telefone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
